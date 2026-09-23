@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ topic_list.name }}{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('admin.index') }}">&laquo; all lists</a></p>
+<h2>{{ topic_list.name }}</h2>
+<p>{{ topic_list.description or '(no description)' }}</p>
+<p>
+  <a href="{{ url_for('admin.suggest', list_id=topic_list.id) }}">Suggest new topics with AI &raquo;</a>
+</p>
+<table>
+  <tr><th>Text</th><th>Category</th><th>Active</th><th>Uses</th></tr>
+  {% for t in topics %}
+  <tr>
+    <td>{{ t.text }}</td>
+    <td>{{ t.category or '' }}</td>
+    <td>{{ 'yes' if t.is_active else 'no' }}</td>
+    <td>{{ t.usage_count() }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="4">No topics yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

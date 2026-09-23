@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% block title %}Suggest topics for {{ topic_list.name }}{% endblock %}
+{% block content %}
+<p><a href="{{ url_for('admin.list_detail', list_id=topic_list.id) }}">&laquo; back to {{ topic_list.name }}</a></p>
+<h2>AI-suggested topics</h2>
+{% if suggestions %}
+<form method="post">
+  <ul>
+    {% for s in suggestions %}
+    <li><label><input type="checkbox" name="approved" value="{{ s }}"> {{ s }}</label></li>
+    {% endfor %}
+  </ul>
+  <button type="submit">Add approved topics</button>
+</form>
+{% else %}
+<p>No suggestions available. Configure an LLM client (see <code>app/suggester.py</code>) to enable this feature.</p>
+{% endif %}
+{% endblock %}

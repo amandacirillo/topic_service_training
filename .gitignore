@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+venv/
+*.db
+.env
+node_modules/
+cdk.out/
+*.js
+!infra/cdk/**/*.js

@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% block title %}Topic Lists{% endblock %}
+{% block content %}
+<h2>Topic Lists</h2>
+<table>
+  <tr><th>Name</th><th>Reusable</th><th>Active / Total</th><th></th></tr>
+  {% for l in lists %}
+  <tr>
+    <td>{{ l.name }}</td>
+    <td>{{ 'yes' if l.reusable else 'no' }}</td>
+    <td>{{ l.active_count() }} / {{ l.total_count() }}</td>
+    <td><a href="{{ url_for('admin.list_detail', list_id=l.id) }}">view</a></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="4">No topic lists yet.</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

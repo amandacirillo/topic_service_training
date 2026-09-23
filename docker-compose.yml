@@ -1,0 +1,14 @@
+services:
+  topic-service:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: sqlite:///data/topics.db
+      API_KEY: local-dev-key
+      FLASK_DEBUG: "true"
+    volumes:
+      - topic-data:/app/data
+
+volumes:
+  topic-data:

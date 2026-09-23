@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Topic Service Admin{% endblock %}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; color: #222; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+    th { background: #f4f4f4; }
+    a { color: #0a5; }
+    .badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+    .badge-low { background: #fdd; color: #900; }
+    .badge-ok { background: #dfd; color: #060; }
+  </style>
+</head>
+<body>
+  <h1><a href="{{ url_for('admin.index') }}">Topic Service</a></h1>
+  {% block content %}{% endblock %}
+</body>
+</html>
