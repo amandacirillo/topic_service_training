@@ -1,5 +1,7 @@
 # Topic Service Training
 
+> **Note:** This is a from-scratch recreation of an architectural pattern I built at my employer, not the original production code -- rebuilt with a fabricated/generic domain and no proprietary business logic, credentials, or internal resource identifiers.
+
 A small Flask microservice for managing named "topic lists" and serving one
 topic at a time to a downstream content-generation pipeline. This is a
 from-scratch training example that demonstrates several real patterns from
